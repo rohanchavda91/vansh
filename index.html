@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="vansh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vansh – The Heritage Chain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="TreeCtrl as vm">
+
+  <header class="top">
+    <h1>Vansh</h1>
+    <p>The Heritage Chain</p>
+  </header>
+
+  <main class="tree">
+    <ul class="children root">
+      <li ng-repeat="n in vm.roots" ng-include="'node.html'"></li>
+    </ul>
+  </main>
+
+  <!-- Recursive template: har member (aur uske bachche) isi se draw hote hain -->
+  <script type="text/ng-template" id="node.html">
+    <div class="maincard" ng-class="{open: n.open}">
+
+      <div class="person-card">
+        <div class="photo">
+          <img ng-if="n.person.photo" ng-src="{{n.person.photo}}" alt="">
+          <span ng-if="!n.person.photo">?</span>
+        </div>
+        <div class="name">{{n.person.name}}</div>
+        <div class="info" ng-if="n.person.info">{{n.person.info}}</div>
+      </div>
+
+      <div class="person-card partner-card" ng-if="n.partner">
+        <div class="photo">
+          <img ng-if="n.partner.photo" ng-src="{{n.partner.photo}}" alt="">
+          <span ng-if="!n.partner.photo">?</span>
+        </div>
+        <div class="name">{{n.partner.name}}</div>
+        <div class="info" ng-if="n.partner.info">{{n.partner.info}}</div>
+      </div>
+
+      <button class="toggle-btn" ng-if="n.children.length"
+              ng-click="n.open = !n.open"
+              aria-label="{{n.open ? 'Collapse' : 'Expand'}}">{{n.open ? '−' : '+'}}</button>
+    </div>
+
+    <div class="branch" ng-class="{open: n.open}" ng-if="n.children.length">
+      <ul class="children">
+        <li ng-repeat="n in n.children"
+            ng-style="{'transition-delay': ($index * 0.07) + 's'}"
+            ng-include="'node.html'"></li>
+      </ul>
+    </div>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
