@@ -15,8 +15,7 @@ var FAMILY = {
     {
       id: "p2",
       name: "ભુરાભાઈ ચાવડા",
-      photo: "",
-      info: "b. 1950"
+      photo: "./../img/p2.jpg"
     },
     {
       id: "p2_",
