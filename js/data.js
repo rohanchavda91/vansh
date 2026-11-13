@@ -60,7 +60,7 @@ var FAMILY = {
     {
       id: "p2_1_",
       name: "ગીતા પરમાર",
-      photo: ""
+      photo: "./img/p2_1_.png"
     }, 
     {
       id: "p2_1_1",
