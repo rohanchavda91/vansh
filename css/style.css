@@ -155,7 +155,9 @@ li { list-style: none; text-align: center; }
 
 @media (max-width: 600px) {
   .top { padding-bottom: 8px; }
-  .tree { padding: 14px 12px 56px; }
+  .tree {
+    padding: 14px max(12px, env(safe-area-inset-right)) calc(56px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  }
 
   .person-card {
     width: clamp(104px, 30vw, 124px);
@@ -163,6 +165,15 @@ li { list-style: none; text-align: center; }
   }
 
   .photo { width: 58px; height: 58px; }
+  .name { font-size: 1rem; }
+  .info { font-size: .82rem; }
+
+  .toggle-btn {
+    bottom: -22px;
+    width: 44px;
+    height: 44px;
+    touch-action: manipulation;
+  }
 
   .children {
     flex-direction: column;

@@ -50,7 +50,7 @@ var FAMILY = {
     {
       id: "p2_1",
       name: "ભૂપત ચાવડા",
-      photo: ""
+      photo: "./img/p2_1.png"
     },
     {
       id: "p2_2",
