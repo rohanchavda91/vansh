@@ -65,12 +65,12 @@ var FAMILY = {
     {
       id: "p2_1_1",
       name: "રોહન ચાવડા",
-      photo: ""
+      photo: "./img/p2_1_1.png"
     },
     {
       id: "p2_1_2",
       name: "અમિત ચાવડા",
-      photo: ""
+      photo: "./img/p2_1_2.png"
     }
 
 
